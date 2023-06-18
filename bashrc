@@ -1,3 +1,5 @@
+#!/bin/bash
+
 nekoactivate() {
     if [ -n "$NEKOACTIVATED" ]; then
         echo "neko already activated" >&2
@@ -14,7 +16,7 @@ nekoactivate() {
 
 nekocharm() {
     nekoactivate
-    cd ~
+    cd ~ || true
     if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
         tmux attach-session -t nekoneko || tmux new-session -e NEKOTMUX=tmuxlogin -s nekoneko
         exit
@@ -24,6 +26,6 @@ nekocharm() {
 if [ "$NEKOTMUX" = tmuxlogin ]; then
     nekoactivate
     export NEKOTMUX=tmuxlogined
-    cd ~
+    cd ~ || true
     exec bash
 fi
