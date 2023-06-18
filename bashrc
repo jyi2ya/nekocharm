@@ -11,7 +11,7 @@ nekoactivate() {
         return 1
     fi
 
-    export HOME="$HOME/.$NEKONAME"
+    export HOME="$HOME/$NEKONAME"
     mkdir -p "$HOME"
 
     export PATH="$HOME/.local/bin/:$PATH"
