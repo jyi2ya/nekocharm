@@ -22,6 +22,7 @@
 Host warmhome
     Hostname 172.27.68.56
     User jyi2ya
+    RequestTTY force
     RemoteCommand env NEKONAME=nekoneko bash -l
 ```
 
