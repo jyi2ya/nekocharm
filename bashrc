@@ -38,3 +38,7 @@ if [ "$NEKOTMUX" = tmuxlogin ]; then
     cd ~ || true
     exec bash
 fi
+
+if [ -n "$NEKONAME" ] && [ -z "$NEKOTMUX" ]; then
+    nekocharm
+fi
