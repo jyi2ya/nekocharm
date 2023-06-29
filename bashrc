@@ -27,7 +27,7 @@ nekocharm() {
     nekoactivate || return 1
     cd ~ || true
     if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
-        tmux attach-session -t "$NEKONAME" || tmux new-session -e NEKONAME="$NEKONAME" -e NEKOTMUX=tmuxlogin -s "$NEKONAME"
+        tmux -L"$NEKONAME" attach-session -t "$NEKONAME" || tmux -L"$NEKONAME" new-session -e NEKONAME="$NEKONAME" -e NEKOTMUX=tmuxlogin -s "$NEKONAME"
         exit
     fi
 }
