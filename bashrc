@@ -29,6 +29,8 @@ nekocharm() {
     if command -v tmux >/dev/null && [ -z "$TMUX" ]; then
         tmux -L"$NEKONAME" attach-session -t "$NEKONAME" || tmux -L"$NEKONAME" new-session -e NEKONAME="$NEKONAME" -e NEKOTMUX=tmuxlogin -s "$NEKONAME"
         exit
+    else
+        exec bash
     fi
 }
 
